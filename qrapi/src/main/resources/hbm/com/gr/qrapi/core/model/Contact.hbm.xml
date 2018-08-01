@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.gr.qrapi.core.model.Contact" table="contact">
+		<id column="Id" name="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+		<property column="FName" name="firstName"
+			type="java.lang.String" />
+		<property column="LName" name="lastName"
+			type="java.lang.String" />
+		<property column="EmailID" name="emailID"
+			type="java.lang.String" />
+		<property column="Gender" name="gender"
+			type="java.lang.String" />
+		<property column="PhoneNo" name="phoneNo"
+			type="java.lang.String" />
+		<property column="Status" name="status"
+			type="java.lang.String" />
+		<bag name="addresses" cascade="all" lazy="false">
+			<key column="contactID" />
+			<one-to-many class="com.gr.qrapi.core.model.Address" />
+		</bag>
+	</class>
+</hibernate-mapping>
