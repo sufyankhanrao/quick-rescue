@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.gr.qrapi.core.model.Account" table="account">
+		<id column="Id" name="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+
+		<property column="Name" name="name" type="java.lang.String" />
+		<property column="EmailDomain" name="emailDomain"
+			type="java.lang.String" />
+		<property column="TimeZoneCity" name="timeZoneCity"
+			type="java.lang.String" />
+		<property column="username" name="username"
+			type="java.lang.String" />
+		<property column="password" name="password"
+			type="java.lang.String" />
+		<bag name="contacts" cascade="all" lazy="false">
+			<key column="accountID" not-null="true" />
+			<one-to-many class="com.gr.qrapi.core.model.Contact" />
+		</bag>
+		<bag name="profiles" cascade="all" lazy="false">
+			<key column="accountID" not-null="true" />
+			<one-to-many class="com.gr.qrapi.core.model.AlertProfile" />
+		</bag>
+
+	</class>
+</hibernate-mapping>
