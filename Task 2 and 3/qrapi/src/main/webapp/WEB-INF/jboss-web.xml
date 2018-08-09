@@ -1,4 +1,0 @@
-<jboss-web>
-	<context-root allowLinking="true">/qrapi</context-root>
-	<symbolic-linking-enabled>true</symbolic-linking-enabled> 
-</jboss-web>
